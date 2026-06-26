@@ -1,0 +1,7 @@
+# Build-/Tooling-Helfer (enthält API-Key) – NICHT hochladen
+.tools/
+# Quell-/Rohbilder (nicht Teil der Website)
+Bilder/
+# macOS
+.DS_Store
+**/.DS_Store
