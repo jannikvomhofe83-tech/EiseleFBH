@@ -100,4 +100,18 @@
   /* footer year */
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
+
+  /* cookie banner */
+  var cb = document.getElementById("cookieBanner");
+  if (cb) {
+    var stored = null;
+    try { stored = localStorage.getItem("cookieConsent"); } catch (e) {}
+    if (!stored) setTimeout(function () { cb.classList.add("show"); }, 700);
+    cb.querySelectorAll("[data-cookie]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        try { localStorage.setItem("cookieConsent", b.getAttribute("data-cookie")); } catch (e) {}
+        cb.classList.remove("show");
+      });
+    });
+  }
 })();

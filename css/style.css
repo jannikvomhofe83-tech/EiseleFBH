@@ -357,8 +357,8 @@ strong{font-weight:700;color:var(--ink)}
 /* ---------- CTA band ---------- */
 .cta{position:relative;overflow:hidden;background:var(--ink-2);color:#fff;text-align:center}
 .cta__media{position:absolute;inset:0}
-.cta__media img{width:100%;height:100%;object-fit:cover;opacity:.22}
-.cta__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,14,.8),rgba(20,12,14,.92))}
+.cta__media img{width:100%;height:100%;object-fit:cover;opacity:1}
+.cta__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,12,13,.28),rgba(18,12,13,.55))}
 .cta__inner{position:relative;z-index:2;max-width:680px;margin-inline:auto}
 .cta h2{color:#fff;margin-bottom:1rem}
 .cta p{color:rgba(255,255,255,.82);margin-bottom:2rem}
@@ -382,6 +382,13 @@ strong{font-weight:700;color:var(--ink)}
 .form__hint{background:var(--bg-soft);border-left:3px solid var(--red);padding:.9rem 1.1rem;border-radius:6px;
   font-size:.9rem;color:var(--muted);margin-bottom:1.6rem}
 .form__note{font-size:.78rem;color:var(--muted);margin-top:.4rem}
+.field--hint{background:var(--bg-soft);border-left:3px solid var(--red);padding:.7rem .9rem;border-radius:6px;font-size:.82rem;color:var(--muted);margin-top:.5rem}
+.checkgroup{display:flex;flex-wrap:wrap;gap:.55rem}
+.checkgroup label{display:inline-flex;align-items:center;gap:.5rem;background:var(--bg-soft);border:1.5px solid var(--line);
+  border-radius:var(--radius-sm);padding:.55rem .9rem;font-weight:600;font-size:.9rem;color:var(--ink-soft);cursor:pointer;margin:0;
+  transition:border-color var(--t),background var(--t),color var(--t)}
+.checkgroup input{width:auto;margin:0}
+.checkgroup label:has(input:checked){border-color:var(--red);background:#fff;color:var(--red)}
 .form__ok{display:none;background:var(--green-soft);border:1px solid #cdebd9;color:#13713f;
   padding:1rem 1.2rem;border-radius:var(--radius-sm);font-weight:600;margin-bottom:1.2rem}
 .form__ok.show{display:block}
@@ -504,7 +511,7 @@ strong{font-weight:700;color:var(--ink)}
 .headbanner__img{position:absolute;inset:0;z-index:0}
 .headbanner__img img{width:100%;height:100%;object-fit:cover;display:block}
 .headbanner__img::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(rgba(18,12,13,.62),rgba(18,12,13,.62))}
+  background:linear-gradient(rgba(18,12,13,.4),rgba(18,12,13,.4))}
 .headbanner__inner{position:relative;z-index:2;max-width:680px;margin-inline:auto}
 .headbanner h2{color:#fff;margin:0}
 .headbanner .eyebrow{color:var(--red-2);margin-bottom:.8rem}
@@ -524,6 +531,14 @@ strong{font-weight:700;color:var(--ink)}
 .bgband .chips li{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.26);color:#fff}
 .bgband .chips li svg{color:var(--red-2)}
 .bgband .chips li:hover{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.45);color:#fff;transform:translateY(-2px)}
+
+/* ---------- Referenz-/Info-Links (klar anklickbar) ---------- */
+.reflinks{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.7rem}
+.reflink{display:inline-flex;align-items:center;gap:.55em;font-weight:700;font-size:.95rem;color:var(--red);
+  border:2px solid var(--line);border-radius:var(--radius-sm);padding:.62em 1.05em;line-height:1;
+  transition:border-color var(--t),background var(--t),transform var(--t)}
+.reflink:hover{border-color:var(--red);background:var(--red-soft);transform:translateY(-2px)}
+.reflink svg{width:1.05em;height:1.05em;flex-shrink:0}
 
 /* ---------- footer ---------- */
 .footer{background:var(--ink);color:rgba(255,255,255,.66);padding-block:clamp(48px,6vw,72px) 0}
@@ -545,6 +560,19 @@ strong{font-weight:700;color:var(--ink)}
   font-size:.84rem}
 .footer__bar a:hover{color:#fff}
 .footer__bar .links{display:flex;gap:1.4rem;flex-wrap:wrap}
+
+/* ---------- Cookie-Banner ---------- */
+.cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--ink);color:#fff;
+  box-shadow:0 -12px 44px -22px rgba(0,0,0,.7);transform:translateY(120%);transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.cookie-banner.show{transform:none}
+.cookie-banner__inner{max-width:var(--maxw);margin-inline:auto;padding:clamp(14px,2.2vw,20px) var(--gut);
+  display:flex;flex-wrap:wrap;gap:.9rem 1.6rem;align-items:center;justify-content:space-between}
+.cookie-banner p{font-size:.88rem;line-height:1.55;max-width:66ch;margin:0}
+.cookie-banner a{color:#fff;text-decoration:underline}
+.cookie-banner__actions{display:flex;flex-wrap:wrap;gap:.6rem;flex-shrink:0}
+.cookie-banner .btn{padding:.7em 1.3em;font-size:.88rem}
+.cookie-banner .btn--ghost{color:#fff;border-color:rgba(255,255,255,.32)}
+.cookie-banner .btn--ghost:hover{border-color:#fff;transform:translateY(-2px)}
 
 /* ---------- scroll reveal ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
@@ -577,4 +605,64 @@ strong{font-weight:700;color:var(--ink)}
   .hero__actions .btn,.cta__actions .btn{width:100%}
   .footer__grid{grid-template-columns:1fr}
   .nav-cta .btn{padding:.8em 1.2em}
+}
+
+/* =====================================================================
+   Mobile-Optimierung (nur ≤1000px bzw. Touch – Desktop bleibt unverändert)
+   ===================================================================== */
+@media (max-width:1000px){
+  html,body{overflow-x:hidden}
+  /* Header kompakt, damit nichts über den Viewport hinausragt */
+  .nav{gap:.8rem}
+  .nav-cta{gap:.55rem}
+  .nav-cta .btn{padding:.72em 1.05em;font-size:.86rem}
+  .brand__txt b{font-size:.98rem}
+  .brand__txt small{font-size:.56rem;letter-spacing:.14em}
+  /* Estrich-Kacheln: kompakteres Format im 2-Spalten-Raster */
+  .estrich-card{aspect-ratio:4/3}
+}
+@media (max-width:560px){
+  /* CTA-Button wandert ins Burger-Menü (dort als roter Block vorhanden) */
+  .nav-cta .btn{display:none}
+  /* Lange Fachbegriffe sauber umbrechen */
+  h1,h2,h3{overflow-wrap:break-word;hyphens:auto}
+  .sys__title{font-size:1.6rem}
+  .hero__content h1{font-size:2.05rem}
+  .hero__sub{font-size:.99rem}
+}
+@media (max-width:520px){
+  .estrich-card{aspect-ratio:16/9}
+}
+/* Touch-Geräte (auch iPad im Desktop-Layout): Hover-Infos immer sichtbar */
+@media (hover:none){
+  .gallery-card__info{opacity:1}
+  .gallery-card__info b,.gallery-card__info p{transform:none}
+}
+@media (max-width:380px){
+  .cookie-banner__actions{width:100%}
+  .cookie-banner .btn{flex:1 1 auto}
+  .btn{white-space:normal;text-align:center}
+}
+/* Drawer-CTA korrekt als Button darstellen (Drawer existiert nur mobil) */
+.mobile-nav a.btn{color:#fff;display:flex;justify-content:center;text-align:center;border-bottom:none;padding:.95em 1.7em;font-weight:700}
+
+/* ---------- Footer: alle Texte weiß (Kundenwunsch, Desktop + Mobil) ---------- */
+.footer{color:#fff}
+.footer__brand p,.footer ul a,.footer__contact li,.footer__contact a,
+.footer__scope p,.footer__bar,.footer__bar a,.footer__bar .links a{color:#fff}
+
+/* ---------- Mobile-Hero: Bild oben, Headline links auf dem Bild ---------- */
+@media (max-width:880px){
+  .hero{display:flex;flex-direction:column}
+  .hero__bg{order:-1;position:relative;inset:auto}
+  .hero__bg img{height:clamp(300px,82vw,430px);max-height:none;object-fit:cover;object-position:right center}
+  .hero__content{padding-block:26px 44px}
+  .hero__content h1{
+    position:absolute;z-index:2;top:clamp(120px,33vw,175px);left:var(--gut);right:26%;
+    transform:translateY(-50%);
+    margin:0;text-align:left;font-size:clamp(0.96rem,4.05vw,1.5rem);line-height:1.24}
+  .hero__content h1 .hero-ln{display:block}
+}
+@media (max-width:880px){
+  .hero .container{position:static}
 }
